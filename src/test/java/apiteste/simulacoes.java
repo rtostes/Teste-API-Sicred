@@ -114,5 +114,17 @@ public class simulacoes {
 			
 		}
 		
+		@Test
+		public void consultaSimulacoesCPFInexistente() {
+			RestAssured.given()
+				.log().all()
+			.when()
+				.get("/api/v1/simulacoes/99887733322")
+			.then()
+			.statusCode(404)
+				.log().all()
+			;
+			
+		}
 		
 }
